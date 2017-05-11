@@ -21,9 +21,13 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
-
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
 call plug#end()
 
+"
+
+filetype on
 
 "Remaps switch pane to tab.
 map <TAB> <C-w>
@@ -31,6 +35,7 @@ map <TAB> <C-w>
 "Remaps terminal escape to esc.
 tnoremap <Esc> <C-\><C-n>
 
+let localleader="\\"
 
 " Remapping stuff according to bépo keyboard layout
 " [HJKL] -> {CTSR}
