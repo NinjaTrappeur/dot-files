@@ -13,21 +13,18 @@ set modeline            " Enable modeline.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation
 set mouse=n
+filetype on
 
 " Plugins stuff
 
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
-
-"
-
-filetype on
 
 "Remaps switch pane to tab.
 map <TAB> <C-w>
@@ -76,7 +73,7 @@ noremap K S
 noremap « <
 noremap » >
 
-" Chiffres en accès direct
+" Direct access digits
 " ————————————————————————
 noremap " 1
 noremap 1 "
@@ -99,7 +96,16 @@ noremap 9 /
 noremap * 0
 noremap 0 *
 
-" Mot plus accessible
+" Remapping word modifier to smthg
+" more convenient
 " ===================
 noremap é w
 noremap É W
+
+" Syntastic related config
+" ========================
+map <Leader>s :SyntasticToggleMode<CR>
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0

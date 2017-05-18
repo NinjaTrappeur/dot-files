@@ -1,0 +1,17 @@
+nother way to do this is through the dconf-editor. This method has a few extra steps from gnome-tweak-tool, but is useful if you don't want to pull in the dependencies from the teak tool.
+
+This will allow you to use the caps:swapescape syntax and automatically keep the change permanent.
+
+sudo apt-get install dconf-tools
+
+After starting the dconf-editor, navigate to org >> gnome >> desktop >> input-sources
+
+Add the options that you need in xkb-options. The option strings are surrounded by single quotes and separated by commas. Be careful not to delete the brackets on the ends.
+
+xkb-options in dconf-editor
+
+You can use this method to enter most of the traditional xkb options that are no longer available in System Settings >> Text Entry. The exception are the settings for switching the keyboard layouts, which currently do not work because of a bug.
+
+For a list of the options and the syntax, use man 7 xkeyboard-config in a terminal.
+
+Another common option that could be used here is terminate:ctrl_alt_bksp to allow ctrl+alt+backspace to end the X-session.
