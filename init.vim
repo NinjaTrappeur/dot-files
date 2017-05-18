@@ -56,8 +56,8 @@ noremap zt zk
 " {HJKL} <- [CTSR]
 " ————————————————
 " {J} = « Jusqu'à »            (j = suivant, J = précédant)
-noremap j t
-noremap J T
+noremap è t
+noremap È T
 " {L} = « Change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
 noremap l c
 noremap L C
