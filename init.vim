@@ -21,9 +21,11 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-speeddating'
 Plug 'vim-syntastic/syntastic'
+Plug 'Shougo/vimproc.vim'
+"Plug 'eagletmt/ghcmod-vim'
+Plug 'Twinside/vim-hoogle'
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 call plug#end()
 
 "Remaps switch pane to tab.
