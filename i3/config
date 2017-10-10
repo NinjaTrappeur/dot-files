@@ -149,4 +149,8 @@ bar {
         status_command i3status
 }
 
+# Rebinding esc to caps lock
 exec /usr/bin/setxkbmap -option "caps:swapescape"
+
+# Preventing tearing
+exec compton -b
