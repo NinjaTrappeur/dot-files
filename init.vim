@@ -24,8 +24,11 @@ Plug 'godlygeek/tabular'
 Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/vimproc.vim'
 "Plug 'eagletmt/ghcmod-vim'
+Plug 'neomake/neomake'
 Plug 'Twinside/vim-hoogle'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+Plug 'leafgarland/typescript-vim'
+Plug 'parsonsmatt/intero-neovim'
 call plug#end()
 
 "Remaps switch pane to tab.
@@ -44,6 +47,7 @@ noremap c h
 noremap r l
 " {ts} = « haut / bas »
 noremap t j
+noremap j t
 noremap s k
 " {CR} = « haut / bas de l'écran »
 noremap C H
@@ -103,6 +107,8 @@ noremap 0 *
 " ===================
 noremap é w
 noremap É W
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Syntastic related config
 " ========================

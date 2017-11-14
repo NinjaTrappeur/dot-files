@@ -26,8 +26,8 @@ alias wghs="cd /home/minoulefou/Code/perso/haskell/wireguard-hs"
 alias hs="cd /home/minoulefou/Code/perso/haskell/"
 alias keeUp='zsh /home/minoulefou/.scripts/syncKeepassUp.zsh'
 alias keeDown='zsh /home/minoulefou/.scripts/syncKeepassDown.zsh'
-alias logUp="sudo logkeys --start --output test.log --no-timestamps"
-alias logDown="sudo logkeys --kill"
+alias logUp="touch /tmp/keylogger.log && sudo logkeys --start --output /tmp/keylogger.log --no-timestamps"
+alias logDown="sudo logkeys --kill && sudo rm /tmp/keylogger.log"
 
 #Rappel: pour trouver les codes des touches,
 #	ctl+v
