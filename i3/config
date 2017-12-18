@@ -25,7 +25,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec roxterm
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -157,4 +157,4 @@ exec /usr/bin/setxkbmap -option "caps:swapescape"
 exec compton -b
 
 # Pomodoro client deamon.
-pomodoro-client daemon 9 10 --nagbar & 
+exec pomodoro-client daemon 9 10 --nagbar & 

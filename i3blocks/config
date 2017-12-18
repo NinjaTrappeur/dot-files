@@ -39,6 +39,11 @@ command=~/.local/bin/pomodoro-client status
 color=#00bc06
 interval=5
 
+[cmus]
+command=~/.local/bin/tempHum.sh
+color=#FF8C00
+interval=60
+
 [volume]
 label=Audio
 #label=♪
@@ -95,7 +100,6 @@ color=#FF8C00
 [cpu_usage]
 label=Cpu
 interval=10
-min_width=Cpu: 100.00%
 color=#FF8C00
 
 [temperature]

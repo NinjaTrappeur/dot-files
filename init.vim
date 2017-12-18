@@ -29,6 +29,8 @@ Plug 'Twinside/vim-hoogle'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 Plug 'leafgarland/typescript-vim'
 Plug 'parsonsmatt/intero-neovim'
+Plug 'vimwiki/vimwiki'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 "Remaps switch pane to tab.
@@ -109,6 +111,10 @@ noremap é w
 noremap É W
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Syntastic related config
 " ========================

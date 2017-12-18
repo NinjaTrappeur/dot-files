@@ -28,6 +28,7 @@ alias keeUp='zsh /home/minoulefou/.scripts/syncKeepassUp.zsh'
 alias keeDown='zsh /home/minoulefou/.scripts/syncKeepassDown.zsh'
 alias logUp="touch /tmp/keylogger.log && sudo logkeys --start --output /tmp/keylogger.log --no-timestamps"
 alias logDown="sudo logkeys --kill && sudo rm /tmp/keylogger.log"
+alias tempDB="sqlite3 /home/minoulefou/.config/tSensor/data.db"
 
 #Rappel: pour trouver les codes des touches,
 #	ctl+v
