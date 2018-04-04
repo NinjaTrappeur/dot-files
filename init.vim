@@ -18,20 +18,33 @@ filetype on
 " Plugins stuff
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/vimproc.vim'
+Plug 'neovimhaskell/haskell-vim'
 "Plug 'eagletmt/ghcmod-vim'
 Plug 'neomake/neomake'
 Plug 'Twinside/vim-hoogle'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-Plug 'leafgarland/typescript-vim'
-Plug 'parsonsmatt/intero-neovim'
+Plug 'LnL7/vim-nix'
+"Plug 'parsonsmatt/intero-neovim'
 Plug 'vimwiki/vimwiki'
 Plug 'mileszs/ack.vim'
 call plug#end()
+
+"Set Monokai
+set background=dark
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+colorscheme palenight 
+
+"Highlight current line
+set cursorline
 
 "Remaps switch pane to tab.
 map <TAB> <C-w>
