@@ -152,9 +152,3 @@ bar {
 
 # Rebinding esc to caps lock
 exec /usr/bin/setxkbmap -option "caps:swapescape"
-
-# Preventing tearing
-exec compton -b
-
-# Pomodoro client deamon.
-exec pomodoro-client daemon 9 10 --nagbar & 
