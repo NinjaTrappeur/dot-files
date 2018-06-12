@@ -38,10 +38,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+a focus left
-bindsym $mod+u focus down
-bindsym $mod+p focus up
-bindsym $mod+e focus right
+bindsym $mod+c focus left
+bindsym $mod+t focus down
+bindsym $mod+s focus up
+bindsym $mod+r focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -50,10 +50,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+t move left
-bindsym $mod+Shift+s move down
-bindsym $mod+Shift+r move up
-bindsym $mod+Shift+n move right
+bindsym $mod+Shift+c move left
+bindsym $mod+Shift+t move down
+bindsym $mod+Shift+s move up
+bindsym $mod+Shift+r move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -72,7 +72,7 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+n layout stacking
-bindsym $mod+s layout tabbed
+bindsym $mod+ç layout tabbed
 bindsym $mod+m layout toggle split
 
 # toggle tiling / floating
@@ -147,8 +147,17 @@ bindsym $mod+o mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks
+        status_command i3status
 }
 
 # Rebinding esc to caps lock
 exec /usr/bin/setxkbmap -option "caps:swapescape"
+
+# Screen brightness control
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2
+
+# Volume control
+bindsym XF86AudioMute exec amixer sset Master 1+ toggle
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
