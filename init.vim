@@ -12,7 +12,7 @@ set noerrorbells        " No beeps.
 set modeline            " Enable modeline.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation
-set mouse=n
+set mouse=a
 filetype on
 
 " Plugins stuff
@@ -30,10 +30,27 @@ Plug 'neomake/neomake'
 Plug 'Twinside/vim-hoogle'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 Plug 'LnL7/vim-nix'
+Plug 'elixir-editors/vim-elixir'
 "Plug 'parsonsmatt/intero-neovim'
 Plug 'vimwiki/vimwiki'
 Plug 'mileszs/ack.vim'
+" Autocomplete stuff
+"===================
+Plug 'Shougo/vimproc.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+Plug 'eagletmt/neco-ghc'
 call plug#end()
+
+" Haskell Autocomplete Stuff
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 "Set Monokai
 set background=dark
@@ -136,3 +153,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+" Haskell grep commands
+"
+" =====================
+command! -nargs=+ -complete=file Aghf Ack "<args>((\ |\n)+)::"
+command! -nargs=+ -complete=file Aght Ack "(data|newtype|type)(\ +)\b<args>\b"
+command! -nargs=+ -complete=file Aghc Ack "\|(\ +)\b<args>\b"
