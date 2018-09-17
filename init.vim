@@ -13,134 +13,145 @@ set modeline            " Enable modeline.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation
 set mouse=a
-filetype on
+filetype plugin on
 
 " Plugins stuff
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'godlygeek/tabular'
-Plug 'vim-syntastic/syntastic'
-Plug 'Shougo/vimproc.vim'
-Plug 'neovimhaskell/haskell-vim'
-"Plug 'eagletmt/ghcmod-vim'
-Plug 'neomake/neomake'
-Plug 'Twinside/vim-hoogle'
-Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-Plug 'LnL7/vim-nix'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'elixir-editors/vim-elixir'
-"Plug 'parsonsmatt/intero-neovim'
-Plug 'vimwiki/vimwiki'
+Plug 'godlygeek/tabular'
+Plug 'LnL7/vim-nix'
 Plug 'mileszs/ack.vim'
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+Plug 'neomake/neomake'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'pbrisbin/vim-syntax-shakespeare'
+Plug 'Shougo/vimproc.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Twinside/vim-hoogle'
+Plug 'vim-syntastic/syntastic'
+Plug 'vimwiki/vimwiki'
 " Autocomplete stuff
 "===================
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimproc.vim'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 let g:deoplete#enable_at_startup = 1
 Plug 'eagletmt/neco-ghc'
 call plug#end()
 
-" Haskell Autocomplete Stuff
-let g:haskellmode_completion_ghc = 0
+" Haskell Stuff
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+let g:haskell_indent_disable = 1          " disable annoyin indent feature
 
-"Set Monokai
+
+" Color Theme / Styling
+" ===========
 set background=dark
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme palenight 
+set cursorline "Highlight current line
 
-"Highlight current line
-set cursorline
-
-"Remaps switch pane to tab.
+" Random Usefull Bindings
+" =======================
+nnoremap <leader>t :split<CR> 
+" Remaps switch pane to tab.
 map <TAB> <C-w>
-
-"Remaps terminal escape to esc.
+" Remaps terminal escape to esc.
 tnoremap <Esc> <C-\><C-n>
-
 let localleader="\\"
 
 " Remapping stuff according to bépo keyboard layout
 " [HJKL] -> {CTSR}
-" ————————————————
+" ================
 " {cr} = « gauche / droite »
-noremap c h
-noremap r l
+nnoremap c h
+vnoremap c h
+onoremap c h
+nnoremap r l
+vnoremap r l
+onoremap r l
 " {ts} = « haut / bas »
-noremap t j
-noremap j t
-noremap s k
+nnoremap t j
+vnoremap t j
+onoremap t j
+nnoremap j t
+nnoremap s k
+vnoremap s k
+onoremap s k
 " {CR} = « haut / bas de l'écran »
-noremap C H
-noremap R L
+nnoremap C H
+nnoremap R L
 " {TS} = « joindre / aide »
-noremap T J
-noremap S K
+nnoremap T J
+nnoremap S K
 " Corollaire : repli suivant / précédent
-noremap zs zj
-noremap zt zk
+nnoremap zs zj
+nnoremap zt zk
  
 " {HJKL} <- [CTSR]
-" ————————————————
+" ================
 " {J} = « Jusqu'à »            (j = suivant, J = précédant)
-noremap è t
-noremap È T
+nnoremap è t
+nnoremap È T
 " {L} = « Change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
-noremap l c
-noremap L C
+nnoremap l c
+nnoremap L C
 " {H} = « Remplace »           (h = un caractère slt, H = reste en « Remplace »)
-noremap h r
-noremap H R
+nnoremap h r
+vnoremap h r
 " {K} = « Substitue »          (k = caractère, K = ligne)
-noremap k s
-noremap K S
+nnoremap k s
+nnoremap K S
 
 " <> en direct
-" ————————————
-noremap « <
-noremap » >
+" ============
+nnoremap « <
+nnoremap » >
 
 " Direct access digits
-" ————————————————————————
-noremap " 1
-noremap 1 "
-noremap « 2
-noremap 2 <
-noremap » 3
-noremap 3 >
-noremap ( 4
-noremap 4 (
-noremap ) 5
-noremap 5 )
-noremap @ 6
-noremap 6 @
-noremap + 7
-noremap 7 +
-noremap - 8
-noremap 8 -
-noremap / 9
-noremap 9 /
-noremap * 0
-noremap 0 *
+" ====================
+nnoremap " 1
+nnoremap 1 "
+nnoremap « 2
+nnoremap 2 <
+nnoremap » 3
+nnoremap 3 >
+nnoremap ( 4
+nnoremap 4 (
+nnoremap ) 5
+nnoremap 5 )
+nnoremap @ 6
+nnoremap 6 @
+nnoremap + 7
+nnoremap 7 +
+nnoremap - 8
+nnoremap 8 -
+nnoremap / 9
+nnoremap 9 /
+nnoremap * 0
+vnoremap * 0
+nnoremap 0 *
+vnoremap 0 *
 
 " Remapping word modifier to smthg
 " more convenient
 " ===================
-noremap é w
-noremap É W
+nnoremap é w
+onoremap é w
+nnoremap É W
+onoremap É W
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|data'
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -148,15 +159,21 @@ endif
 
 " Syntastic related config
 " ========================
-map <Leader>s :SyntasticToggleMode<CR>
+nmap <Leader>s :SyntasticToggleMode<CR>
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-" Haskell grep commands
+" Haskell Tooling Mapping
 "
 " =====================
-command! -nargs=+ -complete=file Aghf Ack "<args>((\ |\n)+)::"
-command! -nargs=+ -complete=file Aght Ack "(data|newtype|type)(\ +)\b<args>\b"
-command! -nargs=+ -complete=file Aghc Ack "\|(\ +)\b<args>\b"
+vnoremap <leader>s :!stylish-haskell<CR>
+" Haskell grep hotkeys
+nnoremap <leader>af :Ack -G ".*\.hs" "\b<cword>\b[ \t\n]+::"<CR>
+nnoremap <leader>at :Ack -G ".*\.hs" "(data\|newtype\|type)(\ +)\b<cword>\b"<CR>
+nnoremap <leader>ac :Ack -G ".*\.hs" "class(\ +)(.*)(=>)*(\ *)\b<cword>\b"<CR>
+" Haskell grep commands
+command! -nargs=+ -complete=file Aghf :Ack -G ".*\.hs" "\b<args>\b[ \t\n]+::"
+command! -nargs=+ -complete=file Aght :Ack -G ".*\.hs" "(data\|newtype\|type)(\ +)\b<args>\b"
+command! -nargs=+ -complete=file Aghc :Ack -G ".*\.hs" "class(\ +)(.*)(=>)*(\ *)\b<args>\b"
