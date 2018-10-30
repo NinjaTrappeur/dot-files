@@ -34,6 +34,7 @@ Plug 'Twinside/vim-hoogle'
 Plug 'vim-syntastic/syntastic'
 Plug 'vimwiki/vimwiki'
 Plug 'pbrisbin/vim-syntax-shakespeare'
+Plug 'junegunn/goyo.vim'
 " Autocomplete stuff
 "===================
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
