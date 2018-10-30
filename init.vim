@@ -33,6 +33,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Twinside/vim-hoogle'
 Plug 'vim-syntastic/syntastic'
 Plug 'vimwiki/vimwiki'
+Plug 'pbrisbin/vim-syntax-shakespeare'
 " Autocomplete stuff
 "===================
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -64,6 +65,7 @@ set cursorline "Highlight current line
 " Random Usefull Bindings
 " =======================
 nnoremap <leader>t :split<CR> 
+nnoremap <leader>q :q<CR> 
 " Remaps switch pane to tab.
 map <TAB> <C-w>
 " Remaps terminal escape to esc.
